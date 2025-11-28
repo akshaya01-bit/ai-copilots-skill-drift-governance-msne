@@ -76,7 +76,8 @@ def sketch_sdi_from_metrics(metrics_path: Path):
 
 
 def main():
-    metrics_path = PROC_DIR / "session_metrics_v1.csv"
+metrics_path = PROC_DIR / "session_metrics_v2.csv"
+
     if not metrics_path.exists():
         raise FileNotFoundError(f"{metrics_path} not found. Run generate_synthetic_data.py first.")
     make_summary_table(metrics_path)

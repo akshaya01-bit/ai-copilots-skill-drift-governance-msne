@@ -12,11 +12,12 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 
 def generate_decision_log(
-    n_workers=60,
-    n_teams=12,
-    n_sessions=10,
-    items_per_session=40,
+    n_workers=80,
+    n_teams=16,
+    n_sessions=12,
+    items_per_session=60,
 ):
+
     """
     Generate synthetic decision logs aligned with the co-pilot study brief:
     - workers grouped into teams
@@ -230,11 +231,11 @@ def summarize_sessions(df: pd.DataFrame) -> pd.DataFrame:
 
 def main():
     df = generate_decision_log()
-    raw_path = RAW_DIR / "sample_decisions_v1.csv"
+raw_path = RAW_DIR / "sample_decisions_v2.csv"
     df.to_csv(raw_path, index=False)
 
     metrics_df = summarize_sessions(df)
-    proc_path = PROC_DIR / "session_metrics_v1.csv"
+proc_path = PROC_DIR / "session_metrics_v2.csv"
     metrics_df.to_csv(proc_path, index=False)
 
     print(f"Wrote raw decisions to {raw_path}")
