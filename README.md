@@ -21,3 +21,16 @@ The synthetic data mirrors the structure described in the brief:
 - AI confidence, human decisions, and overrides.
 
 The goal is to illustrate an **evidence-ready** logging and analysis workflow aligned to the paper, without using any real deployment data.
+## Analysis scripts
+
+- `src/generate_synthetic_data.py`  
+  Generates synthetic row-level logs and session-level metrics.
+
+- `src/compute_metrics_and_plots.py`  
+  Produces fairness (EO gap, ADI) and calibration summaries, and saves basic plots in `figures/`.
+
+- `src/causal_and_power_demo.py`  
+  Sketches intent-to-treat style comparisons (e.g., EO gap improvements vs `None`) and a rough power calculation
+  consistent with the Study 2 discussion of multi-arm designs and effect sizes. These are demonstrations only; any
+  real deployment would require domain-specific tuning and formal preregistration.
+
